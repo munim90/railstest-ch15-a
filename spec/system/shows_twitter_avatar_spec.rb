@@ -14,7 +14,7 @@ RSpec.describe "task display" do
 
   it "shows a gravatar", :vcr do
     visit project_path(project)
-    url = "http://pbs.twimg.com/profile_images/40008602/head_shot_bigger.jpg"
+    url = "http://pbs.twimg.com/profile_images/1371552537153781764/77cdD1px_bigger.jpg"
     within("#task_1") do
       expect(page).to have_selector(".completed", text: user.email)
       expect(page).to have_selector("img[src='#{url}']")

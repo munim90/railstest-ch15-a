@@ -1,4 +1,5 @@
 require "test_helper"
+require 'capybara/rails' 
 
 class TaskShowsTwitterAvatar < Capybara::Rails::TestCase
   include Warden::Test::Helpers
@@ -14,7 +15,7 @@ class TaskShowsTwitterAvatar < Capybara::Rails::TestCase
   test "I see a gravatar" do
     VCR.use_cassette("loading_twitter") do
       visit project_path(projects(:bluebook))
-      url = "http://pbs.twimg.com/profile_images/40008602/head_shot_bigger.jpg"
+      url = "http://pbs.twimg.com/profile_images/1371552537153781764/77cdD1px_bigger.jpg"
       within("#task_1") do
         assert_selector(".completed", text: users(:user).email)
         assert_selector("img[src='#{url}']")

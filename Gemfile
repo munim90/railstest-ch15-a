@@ -31,10 +31,9 @@ gem 'mimemagic', '~> 0.3.10'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem "devise"
 gem "capistrano-rails", group: :development
-
+gem "minitest"
 gem 'twitter'
-gem 'vcr', group: :test
-gem 'webmock', group: :test
+gem "awesome_print"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -49,12 +48,13 @@ group :development, :test do
   gem "rubocop"
   gem "selenium-webdriver"
   gem 'webdrivers'
-  gem 'cucumber-rails', require: false
+  gem "cucumber-rails", require: false
   gem "foreman"
   gem "mocha"
   gem 'rack-test'
   gem "pry-byebug"
   gem "pry-stack_explorer"
+  
 end
 
 group :development do
@@ -63,6 +63,14 @@ group :development do
   gem "spring-commands-rspec"
   gem "spring-watcher-listen"
   gem "web-console"
+end
+
+group :test do
+  gem "vcr"
+  gem "webmock"
+  gem "minitest-rails"
+  #gem "minitest-sprint"
+  gem "minitest-bisect"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
